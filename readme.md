@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/bd26bilggepoddej?svg=true)](https://ci.appveyor.com/project/rubinov2016/aqa-2-3-patterns)
