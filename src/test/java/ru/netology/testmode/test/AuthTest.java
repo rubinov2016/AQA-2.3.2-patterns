@@ -1,10 +1,17 @@
 package ru.netology.testmode.test;
 
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.filter.log.LogDetail;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.netology.testmode.data.DataGenerator;
 
 import static com.codeborne.selenide.Selenide.open;
+import static io.restassured.RestAssured.given;
 import static ru.netology.testmode.data.DataGenerator.Registration.getRegisteredUser;
 import static ru.netology.testmode.data.DataGenerator.Registration.getUser;
 import static ru.netology.testmode.data.DataGenerator.getRandomLogin;
@@ -17,6 +24,7 @@ class AuthTest {
         open("http://localhost:9999");
     }
 
+    //наличие пользователя;
     @Test
     @DisplayName("Should successfully login with active registered user")
     void shouldSuccessfulLoginIfRegisteredActiveUser() {
@@ -26,6 +34,7 @@ class AuthTest {
         //  пользователя registeredUser
     }
 
+    //наличие пользователя;
     @Test
     @DisplayName("Should get error message if login with not registered user")
     void shouldGetErrorIfNotRegisteredUser() {
@@ -34,6 +43,7 @@ class AuthTest {
         //  незарегистрированного пользователя, для заполнения полей формы используйте пользователя notRegisteredUser
     }
 
+    //статус пользователя;
     @Test
     @DisplayName("Should get error message if login with blocked registered user")
     void shouldGetErrorIfBlockedUser() {
@@ -42,6 +52,7 @@ class AuthTest {
         //  заблокированного пользователя, для заполнения полей формы используйте пользователя blockedUser
     }
 
+    //невалидный логин;
     @Test
     @DisplayName("Should get error message if login with wrong login")
     void shouldGetErrorIfWrongLogin() {
@@ -52,6 +63,7 @@ class AuthTest {
         //  "Пароль" - пользователя registeredUser
     }
 
+    //невалидный пароль.
     @Test
     @DisplayName("Should get error message if login with wrong password")
     void shouldGetErrorIfWrongPassword() {

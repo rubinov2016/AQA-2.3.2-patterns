@@ -23,7 +23,7 @@ dependencies {
     testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'io.rest-assured:rest-assured:4.3.1'
-    testImplementation 'io.rest-assured:json-schema-validator:4.3.1'
+    testImplementation 'com.google.code.gson:gson:2.8.6'
 }
 
 test {
