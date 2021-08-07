@@ -31,7 +31,7 @@ class AuthTest {
 
     //наличие пользователя;
     @Test
-    @DisplayName("Should successfully login with active registered user")
+    @DisplayName("1 Should successfully login with active registered user")
     void shouldSuccessfulLoginIfRegisteredActiveUser() {
         var registeredUser = getRegisteredUser("active");
         // TODO: добавить логику теста, в рамках которого будет выполнена попытка входа в личный кабинет с учётными
@@ -46,7 +46,7 @@ class AuthTest {
 
     //наличие пользователя;
     @Test
-    @DisplayName("Should get error message if login with not registered user")
+    @DisplayName("2 Should get error message if login with not registered user")
     void shouldGetErrorIfNotRegisteredUser() {
         var notRegisteredUser = getUser("active");
         // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет
@@ -59,7 +59,7 @@ class AuthTest {
 
     //статус пользователя;
     @Test
-    @DisplayName("Should get error message if login with blocked registered user")
+    @DisplayName("3 Should get error message if login with blocked registered user")
     void shouldGetErrorIfBlockedUser() {
         var blockedUser = getRegisteredUser("blocked");
         // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет,
@@ -72,7 +72,7 @@ class AuthTest {
 
     //невалидный логин;
     @Test
-    @DisplayName("Should get error message if login with wrong login")
+    @DisplayName("4 Should get error message if login with wrong login")
     void shouldGetErrorIfWrongLogin() {
         var registeredUser = getRegisteredUser("active");
         var wrongLogin = getRandomLogin();
@@ -87,7 +87,7 @@ class AuthTest {
 
     //невалидный пароль.
     @Test
-    @DisplayName("Should get error message if login with wrong password")
+    @DisplayName("5 Should get error message if login with wrong password")
     void shouldGetErrorIfWrongPassword() {
         var registeredUser = getRegisteredUser("active");
         var wrongPassword = getRandomPassword();
