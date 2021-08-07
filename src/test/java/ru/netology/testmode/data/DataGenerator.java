@@ -27,18 +27,6 @@ public class DataGenerator {
     private DataGenerator() {
     }
 
-    ////////////////////////////////////
-    static void setUpAll() {
-        // сам запрос
-        given() // "дано"
-                .spec(requestSpec) // указываем, какую спецификацию используем
-                .body(new DataGenerator.RegistrationDto("vasya", "password", "active")) // передаём в теле объект, который будет преобразован в JSON
-                .when() // "когда"
-                .post("/api/system/users") // на какой путь, относительно BaseUri отправляем запрос
-                .then() // "тогда ожидаем"
-                .statusCode(200); // код 200 OK
-    }
-
     private static void sendRequest(RegistrationDto user) {
         //TODO: отправить запрос на указанный в требованиях path, передав в body запроса объект user
         //  и не забудьте передать подготовленную спецификацию requestSpec.
@@ -47,9 +35,9 @@ public class DataGenerator {
         given() // "дано"
                 .spec(requestSpec) // указываем, какую спецификацию используем
                 .body(user) // передаём в теле объект, который будет преобразован в JSON
-                .when() // "когда"
+        .when() // "когда"
                 .post("/api/system/users") // на какой путь, относительно BaseUri отправляем запрос
-                .then() // "тогда ожидаем"
+        .then() // "тогда ожидаем"
                 .statusCode(200); // код 200 OK
     }
 
